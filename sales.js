@@ -1,3 +1,5 @@
+'use strict';
+console.log('javascript loaded');
 // //1. min and max of hourly customers and the average cookies per customer in object parameters
 // var FirstandPike = {
 //   minCust: 23;
