@@ -99,7 +99,9 @@ function cookiesPerHr() {
   // custperhour * this.avgCkie
   for(var i = 0; i <= 15 ; i++){
     this.avgCustHr() * this.avgCkie;
+    // this.storeHrs[];
+    console.log(this.storeHrs.push(i));
   } 
-
 }
+
 firstPike.cookiesPerHr();
