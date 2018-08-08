@@ -22,6 +22,7 @@ var firstPike = {
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
   listOnSite: listOnSite,
+  storeName: '1st and Pike',
   //storeHrs:hours
 };
 
@@ -32,6 +33,8 @@ var seaAir = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Seatac Airport',
   //storeHrs:hours
 };
 var seaCenter = {
@@ -41,6 +44,8 @@ var seaCenter = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Seatac Center',
   //storeHrs:hours
 };
 var capHill = {
@@ -49,7 +54,9 @@ var capHill = {
   avgCkie : 2.3,
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
-  storeSalesArr:[],
+  storeSalesArr:[], 
+  listOnSite: listOnSite,
+  storeName: 'Capitol Hill',
   //storeHrs:hours
 };
 var alki = {
@@ -59,6 +66,8 @@ var alki = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Alki Beach',
   //storeHrs:hours
 };
 
@@ -84,29 +93,49 @@ function cookiesPerHr() {
   }
   console.log(this.storeSalesArr);
 
-  //creating a fuction that creates an unordered lis
-  //it then has a loop that creates list 
-  //it takes the store sales array is places the 1st index into the first list locaiton
-  //it then loops again creates another Li and takes the next index value and places it in the li
-  // the loop conitunties until i is =/less than 1  
+    
 }
 
+
+//////listOnsite
+//creating a fuction that creates an unordered lis
+//it then has a loop that creates list 
+//it takes the store sales array is places the 1st index into the first list locaiton
+//it then loops again creates another Li and takes the next index value and places it in the li
+// the loop conitunties until i is =/less than 1
 function listOnSite() {
-  for(var i = 0; i <= this.storeSalesArr.length; i++){
+  for(var i = 0; i < this.storeSalesArr.length; i++){
+    var storeName = document.getElementById('storeName');
+    storeName.textContent = this.storeName;
     var unlist = document.getElementById('theList');
-    var itemInlist = document.createElement('li');itemInlist.textContent = this.storeSalesArr[i];
+    var itemInlist = document.createElement('li');
+    itemInlist.textContent = this.storeSalesArr[i];
     unlist.appendChild(itemInlist);
-    //need a loop that will pull in create and li and it will iterate through based on the length of this.storeSalesArr
-    // (this.storeSalesArr);
   }
   console.log(listOnSite);
 }
+
+//var numberOfStores = array[firstPike,seaAir,seaCenter,capHill,alki];
+
+// function populate(){
+//   for(var i = 0; i < numberOfStores.length; i++ ){
+    
+//   }
+// }
 firstPike.totalCkiePerHr();
 firstPike.listOnSite();
-// seaAir.totalCkiePerHr();
+
+seaAir.totalCkiePerHr();
+seaAir.listOnSite();
+
 // seaCenter.totalCkiePerHr();
+// seaCenter.listOnSite();
+
 // capHill.totalCkiePerHr();
+// capHill.listOnSite();
+
 // alki.totalCkiePerHr();
+// alki.listOnSite();
 
 
 // for(var i =0; i <  ;i++);
