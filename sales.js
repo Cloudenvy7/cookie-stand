@@ -83,7 +83,9 @@ function cookiesPerHr() {
     this.storeSalesArr.push(cookieSales);  
   }
   console.log(this.storeSalesArr);
-  document.write(this.storeSalesArr);
+  var storetitle =  document.createElement('ul');
+  var storeList = document.createElement('li');
+  (this.storeSalesArr);
 
 }
 firstPike.totalCkiePerHr();
