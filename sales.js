@@ -21,6 +21,7 @@ var firstPike = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
   //storeHrs:hours
 };
 
@@ -61,7 +62,6 @@ var alki = {
   //storeHrs:hours
 };
 
-
 function custPerHr() {
   return (Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust));
 }
@@ -83,12 +83,26 @@ function cookiesPerHr() {
     this.storeSalesArr.push(cookieSales);  
   }
   console.log(this.storeSalesArr);
-  var storetitle =  document.createElement('ul');
-  var storeList = document.createElement('li');
-  (this.storeSalesArr);
 
+  //creating a fuction that creates an unordered lis
+  //it then has a loop that creates list 
+  //it takes the store sales array is places the 1st index into the first list locaiton
+  //it then loops again creates another Li and takes the next index value and places it in the li
+  // the loop conitunties until i is =/less than 1  
+}
+
+function listOnSite() {
+  for(var i = 0; i <= this.storeSalesArr.length; i++){
+    var unlist = document.getElementById('theList');
+    var itemInlist = document.createElement('li');itemInlist.textContent = this.storeSalesArr[i];
+    unlist.appendChild(itemInlist);
+    //need a loop that will pull in create and li and it will iterate through based on the length of this.storeSalesArr
+    // (this.storeSalesArr);
+  }
+  console.log(listOnSite);
 }
 firstPike.totalCkiePerHr();
+firstPike.listOnSite();
 // seaAir.totalCkiePerHr();
 // seaCenter.totalCkiePerHr();
 // capHill.totalCkiePerHr();
