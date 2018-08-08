@@ -80,9 +80,13 @@ function cookiesPerHr() {
   this.storeSalesArr = [];
   for(var i = 0; i < storeHrs.length ; i++){
     var cookieSales = Math.floor(this.avgCustHr() * this.avgCkie);
-    this.storeSalesArr.push(cookieSales);
+    this.storeSalesArr.push(cookieSales);  
   }
   console.log(this.storeSalesArr);
+  var storetitle =  document.createElement('ul');
+  var storeList = document.createElement('li');
+  (this.storeSalesArr);
+
 }
 firstPike.totalCkiePerHr();
 // seaAir.totalCkiePerHr();
@@ -104,3 +108,5 @@ firstPike.totalCkiePerHr();
 // }
 
 
+/// FOR THE DOM 
+/// need to pull in the document that cr
