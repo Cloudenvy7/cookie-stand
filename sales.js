@@ -21,6 +21,8 @@ var firstPike = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: '1st and Pike',
   //storeHrs:hours
 };
 
@@ -31,6 +33,8 @@ var seaAir = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Seatac Airport',
   //storeHrs:hours
 };
 var seaCenter = {
@@ -40,6 +44,8 @@ var seaCenter = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Seatac Center',
   //storeHrs:hours
 };
 var capHill = {
@@ -48,7 +54,9 @@ var capHill = {
   avgCkie : 2.3,
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
-  storeSalesArr:[],
+  storeSalesArr:[], 
+  listOnSite: listOnSite,
+  storeName: 'Capitol Hill',
   //storeHrs:hours
 };
 var alki = {
@@ -58,21 +66,22 @@ var alki = {
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
   storeSalesArr:[],
+  listOnSite: listOnSite,
+  storeName: 'Alki Beach',
   //storeHrs:hours
 };
-
 
 function custPerHr() {
   return (Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust));
 }
 
-function hours() {
-  for(var i = 0; i <= 15; i++){
-    var localStoreHrs = [];
-    localStoreHrs.push(i);
-    console.log(localStoreHrs);
-  }
-}
+// function hours() {
+//   for(var i = 0; i <= 15; i++){
+//     var localStoreHrs = [];
+//     localStoreHrs.push(i);
+//     console.log(localStoreHrs);
+//   }
+// }
 
 function cookiesPerHr() {
   //creating and array that calculates the cookie sales per hour with the by using the varabiles..
@@ -83,16 +92,54 @@ function cookiesPerHr() {
     this.storeSalesArr.push(cookieSales);  
   }
   console.log(this.storeSalesArr);
-  var storetitle =  document.createElement('ul');
-  var storeList = document.createElement('li');
-  (this.storeSalesArr);
-
+    
 }
+
+
+//////listOnsite
+//creating a fuction that creates an unordered lis
+//it then has a loop that creates list 
+//it takes the store sales array is places the 1st index into the first list locaiton
+//it then loops again creates another Li and takes the next index value and places it in the li
+// the loop conitunties until i is =/less than 1
+function listOnSite() {
+  var storeSection = document.getElementsByTagName('section')[0];// finds a the tag section, which is all the section that exist, and stores it into an array. [0] is refering to the first section in the area. -- which means everything that is populating with populate within the very first section. 
+  var storeDiv = document.createElement('div');// creates a container div
+  var storeName = document.createElement('p');// creates a p tag -- for the store name 
+  storeName.textContent = this.storeName;// pulls in storeName property
+  var unlist = document.createElement('ul');// creates a ul
+  for(var i = 0; i < this.storeSalesArr.length; i++){
+    var itemInlist = document.createElement('li');// creates a li
+    itemInlist.textContent = this.storeSalesArr[i];
+    unlist.appendChild(itemInlist);
+  }
+  console.log(listOnSite);
+  storeDiv.appendChild(storeName);
+  storeDiv.appendChild(unlist);
+  storeSection.appendChild(storeDiv);
+}
+
+//var numberOfStores = array[firstPike,seaAir,seaCenter,capHill,alki];
+
+// function populate(){
+//   for(var i = 0; i < numberOfStores.length; i++ ){
+    
+//   }
+// }
 firstPike.totalCkiePerHr();
-// seaAir.totalCkiePerHr();
-// seaCenter.totalCkiePerHr();
-// capHill.totalCkiePerHr();
-// alki.totalCkiePerHr();
+firstPike.listOnSite();
+
+seaAir.totalCkiePerHr();
+seaAir.listOnSite();
+
+seaCenter.totalCkiePerHr();
+seaCenter.listOnSite();
+
+capHill.totalCkiePerHr();
+capHill.listOnSite();
+
+alki.totalCkiePerHr();
+alki.listOnSite();
 
 
 // for(var i =0; i <  ;i++);
