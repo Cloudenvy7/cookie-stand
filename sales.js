@@ -110,7 +110,7 @@ function listOnSite() {
   var unlist = document.createElement('ul');// creates a ul
   for(var i = 0; i < this.storeSalesArr.length; i++){
     var itemInlist = document.createElement('li');// creates a li
-    itemInlist.textContent = storeHrs[i] + ' : ' + this.storeSalesArr[i] ;
+    itemInlist.textContent = `${storeHrs[i]} : ${this.storeSalesArr[i]}` ;
     unlist.appendChild(itemInlist);
   }
   console.log(listOnSite);
