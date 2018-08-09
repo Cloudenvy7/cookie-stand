@@ -12,7 +12,7 @@ console.log('javascript loaded');
 //A. rSearch: https://www.dyn-web.com/tutorials/object-literal/
 
 
-var storeHrs = ["6am","7am","8am","9am","6am","6am","6am","6am","6am","6am","6am","6am","6am","6am","6am"];
+var storeHrs = [' 6am ',' 7am ',' 8am ',' 9am ',' 10am ',' 11am ',' 12pm ',' 1pm ',' 2pm ',' 3pm ',' 4pm ',' 5pm ',' 6pm ',' 7pm ',' 8pm '];
 
 var firstPike = {
   minCust: 23,
@@ -54,7 +54,7 @@ var capHill = {
   avgCkie : 2.3,
   avgCustHr: custPerHr,
   totalCkiePerHr: cookiesPerHr,
-  storeSalesArr:[], 
+  storeSalesArr:[],
   listOnSite: listOnSite,
   storeName: 'Capitol Hill',
   //storeHrs:hours
@@ -89,28 +89,28 @@ function cookiesPerHr() {
   this.storeSalesArr = [];
   for(var i = 0; i < storeHrs.length ; i++){
     var cookieSales = Math.floor(this.avgCustHr() * this.avgCkie);
-    this.storeSalesArr.push(cookieSales);  
+    this.storeSalesArr.push(cookieSales);
   }
   console.log(this.storeSalesArr);
-    
+
 }
 
 
 //////listOnsite
 //creating a fuction that creates an unordered lis
-//it then has a loop that creates list 
+//it then has a loop that creates list
 //it takes the store sales array is places the 1st index into the first list locaiton
 //it then loops again creates another Li and takes the next index value and places it in the li
 // the loop conitunties until i is =/less than 1
 function listOnSite() {
-  var storeSection = document.getElementsByTagName('section')[0];// finds a the tag section, which is all the section that exist, and stores it into an array. [0] is refering to the first section in the area. -- which means everything that is populating with populate within the very first section. 
+  var storeSection = document.getElementsByTagName('section')[0];// finds a the tag section, which is all the section that exist, and stores it into an array. [0] is refering to the first section in the area. -- which means everything that is populating with populate within the very first section.
   var storeDiv = document.createElement('div');// creates a container div
-  var storeName = document.createElement('p');// creates a p tag -- for the store name 
+  var storeName = document.createElement('p');// creates a p tag -- for the store name
   storeName.textContent = this.storeName;// pulls in storeName property
   var unlist = document.createElement('ul');// creates a ul
   for(var i = 0; i < this.storeSalesArr.length; i++){
     var itemInlist = document.createElement('li');// creates a li
-    itemInlist.textContent = this.storeSalesArr[i];
+    itemInlist.textContent = storeHrs[i] + ' : ' + this.storeSalesArr[i] ;
     unlist.appendChild(itemInlist);
   }
   console.log(listOnSite);
@@ -123,7 +123,7 @@ function listOnSite() {
 
 // function populate(){
 //   for(var i = 0; i < numberOfStores.length; i++ ){
-    
+
 //   }
 // }
 firstPike.totalCkiePerHr();
@@ -155,5 +155,5 @@ alki.listOnSite();
 // }
 
 
-/// FOR THE DOM 
+/// FOR THE DOM
 /// need to pull in the document that cr

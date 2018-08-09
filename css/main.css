@@ -1,8 +1,17 @@
 body{
   background-color: blanchedalmond;
 }
+/* 
+#salmonBckground{
+background-image: url(../img/salmon.png);
+} */
 
-p{
+img {
+  width: 10px;
+  height: 10px;
+}
+
+p {
   color:brown;
 }
 
