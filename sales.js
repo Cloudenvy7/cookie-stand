@@ -1,18 +1,29 @@
 'use strict';
 console.log('javascript loaded');
-// //1. min and max of hourly customers and the average cookies per customer in object parameters
-// var FirstandPike = {
-//   minCust: 23;
-//   maxCust: 65;
-//   avgCkie: 6.3;
-//   totalSales: Math.floor(Math.random(max)
-// }
 
-//Step 1. create objects that represent each store
-//A. rSearch: https://www.dyn-web.com/tutorials/object-literal/
-
-
+// this is an array that holds the store hours
 var storeHrs = [' 6am ',' 7am ',' 8am ',' 9am ',' 10am ',' 11am ',' 12pm ',' 1pm ',' 2pm ',' 3pm ',' 4pm ',' 5pm ',' 6pm ',' 7pm ',' 8pm '];
+
+
+// need fuction/constructor that takes in the paramaters of the store and sets the variable in a "this"
+
+function Store(minCust,maxCust,avgCkie,randomCust, storeName){
+  //takes in the properties of the object, sets as paramters and then replaces the value of (this) -refering to the object that is calling on function storeNumbers
+  this.minCust = minCust ;
+  this.maxCust = maxCust ;
+  this.avgCkie = avgCkie ;
+  this.randomCust = randomCust ;
+  this.storeName = storeName ;
+}
+Store.prototype.listOnSite = listOnSite;
+Store.prototype.totalCkiePerHr = totalCkiePerHr;
+Store.prototype.listOnSite = avgCustHr;
+
+var firstPike = new Store(23, 65 , 6.3, '1st and Pike');
+var seaAir = new Store(3, 24 , 1.2, 'Seatac Airport');
+var seaCenter = new Store(11, 38 , 3.7, 'Seattle Center');
+var capHill = new Store(20, 38 , 2.3, 'Capitol Hill');
+var alki = new Store(2, 65 , 4.6, 'Alki');
 
 var firstPike = {
   minCust: 23,
