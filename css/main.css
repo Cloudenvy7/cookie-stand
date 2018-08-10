@@ -2,7 +2,6 @@ body{
   background-color: blanchedalmond;
 }
 
-
 .salmonPicture{
 /* background-image: url(../img/salmon.png); */
 width: 100%;
@@ -29,16 +28,32 @@ p {
   top: 15px;
 }
 
-/* 
+.mainContent {
+  font-size: 1em;
+  }
+  
+td {
+  padding: 10px;
+  width: 30px;
+  background-color:white;
+}
+
+th {
+  padding: 10px;
+  width: 30px;
+  background-color:pink;
+}
+
+
 #siteTitle{
   color:whitesmoke;
-  font-size: 36px; 
-} */
+  /* font-size: 36px;  */
+}
 
-#storeList{
+/* #storeList{
   color: firebrick;
   font-size: 2em;
-}
+} */
 
 
 li {
