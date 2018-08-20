@@ -27,6 +27,7 @@ function Store(minCust,maxCust,avgCkie, storeName){
   this.storeName = storeName ;
   this.dailyTotal = 0;
 }
+//embeddeds the value of a function with in any variable/ array using the store contructor 
 Store.prototype.listOnSite = listOnSite;
 Store.prototype.cookiesPerHr = cookiesPerHr;
 Store.prototype.custPerHr = custPerHr;
@@ -36,6 +37,31 @@ var seaAir = new Store(3, 24 , 1.2, 'Seatac Airport');
 var seaCenter = new Store(11, 38 , 3.7, 'Seattle Center');
 var capHill = new Store(20, 38 , 2.3, 'Capitol Hill');
 var alki = new Store(2, 65 , 4.6, 'Alki');
+
+// when the submit button is hit the input data is gathered and then put into a new instance 
+// of Store, that gets appended to the bottom of the Table. 
+function newFormInput(){
+  // var newStore = document.getElementById('formNewStore');
+  // var newStoreName = document.getElementById('formStoreName');
+  // var NewStoreMin = document.getElementById('formMinCustomers');
+  // document.getElementById('formMaxCustomers');
+  // document.getElementById('formAvgCookieSales');
+  
+  var tableNewForm = document.getElementById('formNewStore');
+  tableNewForm.addEventListener(
+    'submit', function(element) {
+      element.preventDefault();
+      var tableCreateNewForm = new Product (Number(element.target.minCust.value), Number(element.target.maxCust.value), Number(element.target.avgCkie.value), element.target.storeName.value );
+      var newformCustPerhr = tableCreateNewForm.custPerHr(tableCreateNewForm.maxCust, tableCreateNewForm.minCust);
+      tableCreateNewForm.cookiesPerHr(newformCustPerhr, tableCreateNewForm.avgCkie);
+      tableData.push(tableCreateNewForm);
+    }
+  );
+
+
+
+}
+
 
 function custPerHr() {
   return (Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust));
@@ -69,11 +95,25 @@ function listOnSite() {
   // console.log(listOnSite);
 //   tableRow.appendChild(storeName);
 //   storeDiv.appendChild(unlist);
-//   storeSection.appendChild(storeDiv); 
+//   storeSection.appendChild(storeDiv);
 
 }
 
+// this area is creating a var named table data
+// that takes in the contructor functions created above
+// each one of the constructor functions holds object properties
+// each on of the constructor functions properties are in an array.
+// the for loop uses i to refer to the location in the array of the object property
+// Starts making a var createIdEl that creats a tablerow (tr) on the DOM -- so that it can go in the html
+// takes storeName (of tableData [i]) and creates/enters the content into a var createIdEl
+// then it appends/adds the created var to the newly created table row
+// tabledata [i] also has a (prototype) function that can be called on called cookiePerhr()
+// Cookiesper hr takes the avg customers from the min and max of tableData [i] and * it by the avg cookie sales of tableData [i]
+// then tableData [i] has a prototype function that creates table data and list it to the dom under (td) its called listOfSales()
+// ListofSales creates a new var itemlist hat is a table data element, and populates it with the cookiesperhr out put Salesperhr
 
+// wouldnt this be better as a function? could call on it rather then just have it straight run?
+//function tableData(){
 var table = document.getElementById('storeList');
 var tableData =[firstPike,capHill,alki,seaAir,seaCenter];
 for(var i = 0; i < tableData.length; i++){
@@ -85,117 +125,4 @@ for(var i = 0; i < tableData.length; i++){
   tableData[i].listOnSite();
 }
 
-
-// var firstPike = {
-//   minCust: 23,
-//   maxCust :65,
-//   avgCkie :6.3,
-//   avgCustHr: custPerHr,
-//   totalCkiePerHr: cookiesPerHr,
-//   storeSalesArr:[],
-//   listOnSite: listOnSite,
-//   storeName: '1st and Pike',
-//   //storeHrs:hours
-// };
-
-// var seaAir = {
-//   minCust: 3,
-//   maxCust : 24,
-//   avgCkie : 1.2,
-//   avgCustHr: custPerHr,
-//   totalCkiePerHr: cookiesPerHr,
-//   storeSalesArr:[],
-//   listOnSite: listOnSite,
-//   storeName: 'Seatac Airport',
-//   //storeHrs:hours
-// };
-// var seaCenter = {
-//   minCust: 11,
-//   maxCust : 38,
-//   avgCkie : 3.7,
-//   avgCustHr: custPerHr,
-//   totalCkiePerHr: cookiesPerHr,
-//   storeSalesArr:[],
-//   listOnSite: listOnSite,
-//   storeName: 'Seatac Center',
-//   //storeHrs:hours
-// };
-// var capHill = {
-//   minCust: 20,
-//   maxCust : 38,
-//   avgCkie : 2.3,
-//   avgCustHr: custPerHr,
-//   totalCkiePerHr: cookiesPerHr,
-//   storeSalesArr:[],
-//   listOnSite: listOnSite,
-//   storeName: 'Capitol Hill',
-//   //storeHrs:hours
-// };
-// var alki = {
-//   minCust: 2,
-//   maxCust : 65,
-//   avgCkie : 4.6,
-//   avgCustHr: custPerHr,
-//   totalCkiePerHr: cookiesPerHr,
-//   storeSalesArr:[],
-//   listOnSite: listOnSite,
-//   storeName: 'Alki Beach',
-//   //storeHrs:hours
-// };
-
-
-// // function hours() {
-// //   for(var i = 0; i <= 15; i++){
-// //     var localStoreHrs = [];
-// //     localStoreHrs.push(i);
-// //     console.log(localStoreHrs);
-// //   }
-// // }
-
-
-
-// //////listOnsite
-// //creating a fuction that creates an unordered lis
-// //it then has a loop that creates list
-// //it takes the store sales array is places the 1st index into the first list locaiton
-// //it then loops again creates another Li and takes the next index value and places it in the li
-// // the loop conitunties until i is =/less than 1
-
-// //var numberOfStores = array[firstPike,seaAir,seaCenter,capHill,alki];
-
-// // function populate(){
-// //   for(var i = 0; i < numberOfStores.length; i++ ){
-
-// //   }
-// // }
-// firstPike.totalCkiePerHr();
-// firstPike.listOnSite();
-
-// seaAir.totalCkiePerHr();
-// seaAir.listOnSite();
-
-// seaCenter.totalCkiePerHr();
-// seaCenter.listOnSite();
-
-// capHill.totalCkiePerHr();
-// capHill.listOnSite();
-
-// alki.totalCkiePerHr();
-// alki.listOnSite();
-
-
-// // for(var i =0; i <  ;i++);
-
-// // function cookiesPerHr() {
-// //   //creating and array that calculates the cookie sales per hour with the by using the varabiles..
-// //   // custperhour * this.avgCkie
-// //   for(var i = 0; i < 15 ; i++){
-// //     this.avgCustHr() * this.avgCkie;
-// //     this.storeHrs.push(i);
-// //   }
-// // //   console.log()
-// // }
-
-
-// /// FOR THE DOM
-// /// need to pull in the document that cr
+// tableData();
