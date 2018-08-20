@@ -2,21 +2,32 @@ body{
   background-color: blanchedalmond;
 }
 
-.salmonPicture{
+#patSalmon {
 /* background-image: url(../img/salmon.png); */
-width: 100%;
-height: 50%;
+ width:521px;
+ height: 130px;
 /* padding: 57px */
 } 
 
 img {
-  width:521px;
-  height: 130px;
+  width: 30%;
+  height: 30%;
+  display: block;
+}
+
+secion,p {
+  background-color: rgb(217, 242, 242);
+  text-align: center;
+}
+
+section {
+  margin-top: 100px;
 }
 
 p {
   color:brown;
 }
+
 .siteTitle {
   color:whitesmoke;
   font-size: 36px;
@@ -31,7 +42,17 @@ p {
 .mainContent {
   font-size: 1em;
   }
-  
+
+.ColumnTwo {
+  display: inline-block;
+  width: 45%;
+}
+
+.ColumnOne {
+  display: inline-block;
+  width: 45%;
+}
+
 td {
   padding: 10px;
   width: 30px;

@@ -62,9 +62,6 @@ function newStoreForSite(){
   );
 }
 
-
-
-
 function custPerHr() {
   return (Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust));
 }
