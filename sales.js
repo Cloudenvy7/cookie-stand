@@ -49,16 +49,15 @@ var alki = new Store(2, 65 , 4.6, 'Alki');
 // document.getElementById('formAvgCookieSales');
 
 
-var tableNewForm = document.getElementById('formNewStore');
-tableNewForm.addEventListener(
-  'submit', function(element) {
-    console.log('this is the sumbit function element ' + element.target);
-    element.preventDefault();
-    var tableCreateNewForm = new Store (Number(element.target.minCust.value), Number(element.target.maxCust.value), Number(element.target.avgCkie.value), element.target.storeName.value );
-    var newformCustPerhr = tableCreateNewForm.custPerHr(tableCreateNewForm.maxCust, tableCreateNewForm.minCust);
-    tableCreateNewForm.cookiesPerHr(newformCustPerhr, tableCreateNewForm.avgCkie);
-    tableData.push(tableCreateNewForm);
-  });
+var tableNewForm = document.getElementById('newCustomerForm');
+tableNewForm.addEventListener('submit', function(element) {
+  console.log('this is the sumbit function element ' + element.target);
+  element.preventDefault();
+  var tableCreateNewForm = new Store (Number(element.target.minCust.value), Number(element.target.maxCust.value), Number(element.target.avgCkie.value), element.target.storeName.value );
+  var newformCustPerhr = tableCreateNewForm.custPerHr(tableCreateNewForm.maxCust, tableCreateNewForm.minCust);
+  tableCreateNewForm.cookiesPerHr(newformCustPerhr, tableCreateNewForm.avgCkie);
+  tableData.push(tableCreateNewForm);
+});
 
 function custPerHr() {
   return (Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust));
