@@ -15,7 +15,7 @@ img {
   display: block;
 }
 
-secion,p {
+section p {
   background-color: rgb(217, 242, 242);
   text-align: center;
 }
@@ -45,12 +45,14 @@ p {
 
 .ColumnTwo {
   display: inline-block;
-  width: 45%;
+  width: 35%;
+  padding: 30px;
 }
 
 .ColumnOne {
   display: inline-block;
-  width: 45%;
+  width: 35%;
+  padding: 30px;
 }
 
 td {
