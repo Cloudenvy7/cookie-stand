@@ -40,16 +40,19 @@ var alki = new Store(2, 65 , 4.6, 'Alki');
 
 // when the submit button is hit the input data is gathered and then put into a new instance 
 // of Store, that gets appended to the bottom of the Table. 
-function newFormInput(){
+
+// function newFormInput(){
   // var newStore = document.getElementById('formNewStore');
   // var newStoreName = document.getElementById('formStoreName');
   // var NewStoreMin = document.getElementById('formMinCustomers');
   // document.getElementById('formMaxCustomers');
   // document.getElementById('formAvgCookieSales');
-  
+
+function newStoreForSite(){
   var tableNewForm = document.getElementById('formNewStore');
   tableNewForm.addEventListener(
     'submit', function(element) {
+      console.log('this is the sumbit function element ' + element.target);
       element.preventDefault();
       var tableCreateNewForm = new Product (Number(element.target.minCust.value), Number(element.target.maxCust.value), Number(element.target.avgCkie.value), element.target.storeName.value );
       var newformCustPerhr = tableCreateNewForm.custPerHr(tableCreateNewForm.maxCust, tableCreateNewForm.minCust);
@@ -57,10 +60,9 @@ function newFormInput(){
       tableData.push(tableCreateNewForm);
     }
   );
-
-
-
 }
+
+
 
 
 function custPerHr() {
@@ -72,7 +74,7 @@ function cookiesPerHr() {
   // custperhour * this.avgCkie
   this.storeSalesArr = [];
   for(var i = 0; i < storeHrs.length ; i++){
-    console.log(storeHrs[i]);
+    // console.log(storeHrs[i]);
     var cookieSales = Math.floor(this.custPerHr() * this.avgCkie);
     this.storeSalesArr.push(cookieSales);
     this.dailyTotal += cookieSales;
@@ -117,7 +119,7 @@ function listOnSite() {
 var table = document.getElementById('storeList');
 var tableData =[firstPike,capHill,alki,seaAir,seaCenter];
 for(var i = 0; i < tableData.length; i++){
-  console.log(tableData[i].storeName);
+  // console.log(tableData[i].storeName);
   var createIdEl = document.createElement('tr');
   createIdEl.textContent = tableData[i].storeName;
   table.appendChild(createIdEl);
